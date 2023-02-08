@@ -1,0 +1,14 @@
+@import "variables";
+@import "relevantsNews";
+@import "otherNews";
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.main-section{
+    flex-grow: 1;
+}

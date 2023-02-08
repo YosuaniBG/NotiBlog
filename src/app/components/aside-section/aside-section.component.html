@@ -1,0 +1,26 @@
+<aside>
+    <section class="add-news">
+      <h1>Gestión de noticias</h1>
+      <div class="news-form">
+        <form class="edition-form" action="">
+          <label for="titulo">Título: </label>
+          <input id="titulo" type="text" [(ngModel)]="noticia.title" [ngModelOptions]="{standalone: true}" />
+          <label for="fuente">Publicado por: </label>
+          <input id="fuente" type="text" [(ngModel)]="noticia.author" [ngModelOptions]="{standalone: true}"/>
+          <label for="imagen">Subir URL de la imagen: </label>
+          <input id="imagen" type="text" (change)="uploadImage($event)" />
+          <!-- <input id="imagen" type="file" (change)="uploadImage($event)" /> -->
+          <label for="descripcion">Descripción: </label>
+          <textarea name="" id="descripcion" cols="30" rows="10" [(ngModel)]="noticia.content" [ngModelOptions]="{standalone: true}"></textarea>
+          <button (click)="addNews()">Añadir noticia</button>
+        </form>
+      </div>
+      <h1>Preview</h1>
+      <div class="model">
+        <img [src]="noticia.urlToImage" alt="" />
+        <h2 class="title">{{noticia.title}}</h2>
+          <p class="description">{{noticia.content}}</p>
+          <span class="data">Publicado por {{noticia.author}}</span>
+      </div>
+    </section>
+  </aside>
