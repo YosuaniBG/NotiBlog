@@ -1,25 +1,71 @@
-.news{
-    padding-bottom: 30px;
+.news {
+  padding-bottom: 30px;
 
-    h1 {
-        margin: 20px 0;
-    }
+  h1 {
+    margin: 20px 0;
+  }
 
-    .news-wrapper {
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 10px;
+  .news-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
 
-        .card-news {
-            width: 420px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 10px;
+    .card-news {
+      position: relative;
+      width: 420px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 10px;
+
+      .btn-trash {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.432);
+        border-radius: 50%;
+        transition: all 0.5 ease;
+
+        &:hover {
+            background-color: rgba(150, 11, 11, 0.925);
+            transform: scale(1.1);
         }
+      }
+
+      .btn-pen {
+        position: absolute;
+        right: 60px;
+        top: 20px;
+        font-size: 16px;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.432);
+        border-radius: 50%;
+        transition: all 0.5 ease;
+
+        &:hover {
+            background-color: rgba(7, 70, 21, 0.925);
+            transform: scale(1.1);
+        }
+      }
+
+      .btn-up {
+        position: absolute;
+        right: 100px;
+        top: 20px;
+        font-size: 18px;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.432);
+        border-radius: 50%;
+        transition: all 0.5 ease;
+
+        &:hover {
+            background-color: rgba(7, 70, 21, 0.925);
+            transform: scale(1.1);
+        }
+      }
     }
-
-
+  }
 }
