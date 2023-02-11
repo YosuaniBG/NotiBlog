@@ -1,67 +1,97 @@
 header {
-    height: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 50px;
+  align-items: center;
+
+  .menu {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
+    .fa-bars {
+      font-size: 30px;
+      display: block;
+
+      @media (min-width: 970px) {
+        display: none;
+      }
+    }
+
     .navegation {
-        list-style: none;
+      list-style: none;
+      display: none;
+      gap: 10px;
+
+      li {
+        &.link {
+          padding: 10px 20px;
+          background-color: #5f534f;
+          border-radius: 30px;
+          font-weight: 600;
+        }
+        &:hover {
+          cursor: pointer;
+          background-color: #21698d;
+          color: white;
+        }
+      }
+
+      @media (min-width: 970px) {
         display: flex;
-        gap: 10px;
+      }
+    }
+  }
 
-        li{
-            &.link {
-                padding: 10px 20px;
-                background-color: #5F534F;
-                border-radius: 30px;
-                font-weight: 600;
-            }
-        }
+  .logo {
+    h1 {
+      font-family: "Gentium Book Basic", serif;
+      font-weight: 700;
+      color: white;
+      font-size: 50px;
+    }
+  }
+  .search {
+    display: none;
+    align-items: center;
+
+    input[type="text"] {
+      width: 320px;
+      height: 35px;
+      padding: 5px;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      border: none;
+      background-color: #040404;
+      border: 1px solid #5f534f;
+      border-right: none;
+      color: #d0c7be;
     }
 
-    .logo {
-        h1 {
-            font-family: 'Gentium Book Basic', serif;
-            font-weight: 700;
-            color: white;
-            font-size: 50px;
-        }    
-    }
-    .search {
-        input[type=text] {
-            width: 320px;
-            height: 35px;
-            padding: 5px;
-            border-top-left-radius: 50px;
-            border-bottom-left-radius: 50px;
-            border: none;
-            background-color: #040404;
-            border: 1px solid #5F534F;
-            border-right: none;
-            color: #D0C7BE;
-        }
+    i {
+      &.fa-magnifying-glass {
+        font-size: 13px;
+        background-color: #040404;
+        padding: 10px;
+        color: #d0c7be;
+        border: 1px solid #5f534f;
+        border-left: none;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
 
-        form {
-            display: flex;
-            align-items: center;
+        :hover {
+          cursor: pointer;
         }
+      }
     }
 
-    i{
-        &.fa-magnifying-glass {
-            font-size: 13px;
-            background-color: #040404;
-            padding: 10px;
-            color: #D0C7BE;
-            border: 1px solid #5F534F;
-            border-left: none;
-            border-top-right-radius: 50%;
-            border-bottom-right-radius: 50%;
-    
-            :hover {
-                cursor: pointer;
-            }
-        }
+    @media (min-width: 970px) {
+      display: flex;
     }
-    
+  }
+
+  @media (min-width: 970px) {
+    justify-content: space-between;
+    gap: 0px;
+  }
 }

@@ -1,51 +1,63 @@
 <aside>
   <section class="add-news">
-    <h1>Gestión de noticias</h1>
-    <div class="news-form">
-      <form class="edition-form" action="">
-        <label for="titulo">Título: </label>
-        <input
-          id="titulo"
-          type="text"
-          [(ngModel)]="newsToUpdate.title"
-          [ngModelOptions]="{ standalone: true }"
-        />
-        <label for="fuente">Publicado por: </label>
-        <input
-          id="fuente"
-          type="text"
-          [(ngModel)]="newsToUpdate.author"
-          [ngModelOptions]="{ standalone: true }"
-        />
-        <label for="imagen">Subir URL de la imagen: </label>
-        <input
-          id="imagen"
-          type="text"
-          [(ngModel)]="newsToUpdate.urlToImage"
-          [ngModelOptions]="{ standalone: true }"
-        />
-        <label for="descripcion">Descripción: </label>
-        <textarea
-          name=""
-          id="descripcion"
-          cols="30"
-          rows="10"
-          [(ngModel)]="newsToUpdate.content"
-          [ngModelOptions]="{ standalone: true }"
-        ></textarea>
-        <div class="btn-form">
-          <button (click)="createNews()">Añadir noticia</button>
-          <button (click)="cleanForm()">Limpiar</button>
-        </div>
-      </form>
+    <div class="news-form-container">
+      <h1>Gestión de noticias</h1>
+      <div class="news-form">
+        <form class="edition-form" action="">
+          <label for="titulo">Título: </label>
+          <input
+            id="titulo"
+            type="text"
+            [(ngModel)]="newsToUpdate.title"
+            [ngModelOptions]="{ standalone: true }"
+          />
+          <label for="fuente">Publicado por: </label>
+          <input
+            id="fuente"
+            type="text"
+            [(ngModel)]="newsToUpdate.author"
+            [ngModelOptions]="{ standalone: true }"
+          />
+          <label for="imagen">Subir URL de la imagen: </label>
+          <input
+            id="imagen"
+            type="text"
+            [(ngModel)]="newsToUpdate.urlToImage"
+            [ngModelOptions]="{ standalone: true }"
+          />
+          <label for="fecha">Fecha de publicación: </label>
+          <input
+            id="fecha"
+            type="date"
+            [(ngModel)]="newsToUpdate.publishedAt"
+            [ngModelOptions]="{ standalone: true }"
+          />
+          <label for="descripcion">Descripción: </label>
+          <textarea
+            name=""
+            id="descripcion"
+            cols="30"
+            rows="10"
+            [(ngModel)]="newsToUpdate.content"
+            [ngModelOptions]="{ standalone: true }"
+          ></textarea>
+          <div class="btn-form">
+            <button (click)="createNews()">
+              {{ modeUpdate ? "Actualizar" : "Añadir noticia" }}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-    <h1>Preview</h1>
-    <div class="model">
-      <img [src]="newsToUpdate.urlToImage" alt="" />
-      <h2 class="title">{{ newsToUpdate.title }}</h2>
-      <p class="description">{{ newsToUpdate.content }}</p>
-      <span class="data">Publicado por: {{ newsToUpdate.author }}</span>
-      <span class="data">Fecha: {{ newsToUpdate.publishedAt }}</span>
+    <div class="preview-container">
+      <h1>Preview</h1>
+      <div class="model">
+        <img [src]="loadImagePreview()" alt="" />
+        <h2 class="title">{{ newsToUpdate.title }}</h2>
+        <p class="description">{{ newsToUpdate.content }}</p>
+        <span class="data">Publicado por: {{ newsToUpdate.author }}</span>
+        <span class="data">Fecha: {{ newsToUpdate.publishedAt }}</span>
+      </div>
     </div>
   </section>
 </aside>

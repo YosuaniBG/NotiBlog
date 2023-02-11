@@ -5,44 +5,50 @@ import { News } from 'src/app/interfaces/news.interface';
 @Component({
   selector: 'app-news-section',
   templateUrl: './news-section.component.html',
-  styleUrls: ['./news-section.component.scss']
+  styleUrls: ['./news-section.component.scss'],
 })
 export class NewsSectionComponent {
-  
+  date: Date = new Date();
+
   newsList: News[] = [];
+  modeUpdate: boolean = false;
   newsToUpdate: News = {
     id: 0,
-    author: "Desconocido",
-    title: "Título",
-    content: "Sin contenido aún...",
-    urlToImage: "https://via.placeholder.com/150",
-    publishedAt: "Hoy"
+    author: '',
+    title: '',
+    content: '',
+    urlToImage: '',
+    publishedAt: this.date.toISOString().substring(0, 10),
   };
 
-  constructor(){
+  constructor() {
     this.newsList = dataList;
-   }
-  
-   addNews($event: News): void{
-    this.newsList.push($event);    
-   }
+  }
 
-   removeNews($event: any): void{
-    console.log($event.target.id);
-    if(this.newsList.length > 1)
-      this.newsList.splice($event.target.id, 1);
-   }
 
-   selectNews($event: any): void{
+  addOrUpdateNews($event: News): void {
+    if (!this.newsList.find((elem) => elem.id === $event.id)) {
+      this.newsList.push($event);
+    } else {
+      const index: number = this.newsList.findIndex(
+        (elem) => elem.id === $event.id
+      );
+      this.newsList.splice(index, 1, $event);
+    }
+    this.modeUpdate = false;
+  }
+
+  removeNews($event: any): void {
+    if (this.newsList.length > 1) this.newsList.splice($event.target.id, 1);
+  }
+
+  selectNews($event: any): void {
     this.newsToUpdate = this.newsList[$event.target.id];
-   }
-  
-   upToRelevant($event: any): void{
-    let elem = this.newsList.splice($event.target.id, 1);
-    console.log(elem);
-    this.newsList.unshift(elem[0]);
+    this.modeUpdate = true;
+  }
 
-   }
-   
-  
+  upToRelevant($event: any): void {
+    let elem = this.newsList.splice($event.target.id, 1);
+    this.newsList.unshift(elem[0]);
+  }
 }

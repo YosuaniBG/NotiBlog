@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-// import { dataList } from 'src/app/data/data';
 import { News } from 'src/app/interfaces/news.interface';
 
 @Component({
@@ -9,62 +8,58 @@ import { News } from 'src/app/interfaces/news.interface';
 })
 export class AsideSectionComponent {
 
-  data: Date = new Date();
+  date: Date = new Date();
   counter: number = 6;
 
   @Input() List: News[] = [];
+  @Input() modeUpdate: boolean = false;
   @Input() newsToUpdate: News = {
     id: this.counter,
     author: "",
     title: "",
     content: "",
-    urlToImage: "https://via.placeholder.com/150",
-    publishedAt: this.data.toISOString().substring(0, 10)
+    urlToImage: "",
+    publishedAt: ""
   };
+  
 
   @Output() objNews: EventEmitter<News>;
 
-  
-
-  // id: number = 6;
-  // author: string = '';
-  // title: string = '';
-  // content: string =
-  //   'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat sed ullam vel corporis officia nostrum tempore pariatur eaque qui culpa, eum at voluptas vitae assumenda laboriosam nihil voluptatum et itaque!';
-  // urlToImage: string = 'https://via.placeholder.com/150';
-  // publishedAt: string = this.data.toISOString().substring(0, 10);
-
-
   constructor() {
     this.objNews = new EventEmitter();
+ 
   }
 
-  // uploadImage($event: any): void {
-  //   this.urlToImage = $event.target.value;
-  // }
+  loadImagePreview(): string{
+    return (this.newsToUpdate.urlToImage !== '') ? this.newsToUpdate.urlToImage : "https://via.placeholder.com/150";
+  }
 
   createNews(): void {
-    let noticia: News = {
-      id: this.newsToUpdate.id,
-      author: this.newsToUpdate.author,
-      title: this.newsToUpdate.title,
-      content: this.newsToUpdate.content,
-      urlToImage: this.newsToUpdate.urlToImage,
-      publishedAt: this.newsToUpdate.publishedAt
-    };
-    if(!this.List.find(elem => elem.id === noticia.id)){
+    if(this.newsToUpdate.author !== '' && this.newsToUpdate.title !== '' && this.newsToUpdate.urlToImage !== '' && this.newsToUpdate.content !== ''){
+      let noticia: News = {
+        id: this.newsToUpdate.id,
+        author: this.newsToUpdate.author,
+        title: this.newsToUpdate.title,
+        content: this.newsToUpdate.content,
+        urlToImage: this.newsToUpdate.urlToImage,
+        publishedAt: this.newsToUpdate.publishedAt
+      };
       this.objNews.emit(noticia);
-      this.counter++;
-    }      
+      if(!this.modeUpdate) this.counter++; 
+      this.cleanForm();      
+    }else
+      alert('No puede dejar campos vacios');
+    
   }
 
+
   cleanForm(): void{
-      // this.newsToUpdate.id = this.counter,
-      // this.newsToUpdate.author = '',
-      // this.newsToUpdate.title = '',
-      // this.newsToUpdate.content = '',
-      // this.newsToUpdate.urlToImage = '',
-      // this.newsToUpdate.publishedAt = ''
+      this.newsToUpdate.id = this.counter;
+      this.newsToUpdate.author = '',
+      this.newsToUpdate.title = '',
+      this.newsToUpdate.content = '',
+      this.newsToUpdate.urlToImage = '',
+      this.newsToUpdate.publishedAt = this.date.toISOString().substring(0, 10)
   }
 
 }

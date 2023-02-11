@@ -53,6 +53,7 @@
   <app-aside-section
     [List]="newsList"
     [newsToUpdate]="newsToUpdate"
-    (objNews)="addNews($event)"
+    [modeUpdate]="modeUpdate"
+    (objNews)="addOrUpdateNews($event)"
   ></app-aside-section>
 </main>

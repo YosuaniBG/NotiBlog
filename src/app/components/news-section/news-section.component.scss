@@ -4,11 +4,16 @@
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     gap: 40px;
+
+    @media (min-width:900px) {
+        flex-direction: row;
+    }
 }
 
-// .main-section{
-//     flex-grow: 1;
-// }
+.main-section{
+    flex-grow: 1;
+}
