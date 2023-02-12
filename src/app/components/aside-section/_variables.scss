@@ -1,0 +1,22 @@
+// COLORES
+$color_gris: #5f534f;
+$color_blanco_sucio: #d0c7be;
+$color_azul_claro: #21698d;
+$color_blanco: white;
+
+// BORDES
+$borde_solido_gris: 2px solid #5f534f;
+
+// BOTONES
+@mixin btn_primarios {
+  padding: 10px 20px;
+  background-color: $color_gris;
+  border-radius: 30px;
+  font-weight: 600;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color_azul_claro;
+    color: $color_blanco;
+  }
+}

@@ -1,0 +1,26 @@
+$color_gris: #5f534f;
+$color_blanco_sucio: #d0c7be;
+$color_azul_claro: #21698d;
+$color_blanco: white;
+$color_negro_fondo: #040404;
+$color_negro_transparente: rgba(86, 84, 84, 0.432);
+$color_negro_oscuro_transparente: rgba(0, 0, 0, 0.612);
+
+// BORDES
+$borde_solido_gris: 2px solid #5f534f;
+$borde_ligero_gris: 1px solid #5f534f;
+$borde_solido_blanco: 2px solid #f1f2f3;
+
+// BOTONES
+@mixin btn_primarios {
+    padding: 10px 20px;
+    background-color: $color_gris;
+    border-radius: 30px;
+    font-weight: 600;
+  
+    &:hover {
+      cursor: pointer;
+      background-color: $color_azul_claro;
+      color: $color_blanco;
+    }
+  }

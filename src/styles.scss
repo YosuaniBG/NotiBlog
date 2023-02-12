@@ -1,3 +1,6 @@
+$color_negro_fondo: #040404;
+$color_blanco_sucio: #D0C7BE;
+
 * {
     margin: 0;
     padding: 0;
@@ -5,8 +8,8 @@
 }
 
 body {
-    background-color: #040404;
-    color: #D0C7BE;
+    background-color: $color_negro_fondo;
+    color: $color_blanco_sucio;
     font-family: 'Asap', sans-serif;
     font-size: 18px;
     display: flex;

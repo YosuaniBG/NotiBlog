@@ -25,15 +25,7 @@ header {
 
       li {
         &.link {
-          padding: 10px 20px;
-          background-color: #5f534f;
-          border-radius: 30px;
-          font-weight: 600;
-        }
-        &:hover {
-          cursor: pointer;
-          background-color: #21698d;
-          color: white;
+          @include btn_primarios;
         }
       }
 
@@ -47,7 +39,7 @@ header {
     h1 {
       font-family: "Gentium Book Basic", serif;
       font-weight: 700;
-      color: white;
+      color: $color_blanco;
       font-size: 50px;
     }
   }
@@ -57,29 +49,30 @@ header {
 
     input[type="text"] {
       width: 320px;
-      height: 35px;
+      height: 45px;
       padding: 5px;
-      border-top-left-radius: 50px;
-      border-bottom-left-radius: 50px;
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 25px;
       border: none;
-      background-color: #040404;
-      border: 1px solid #5f534f;
+      background-color: $color_negro_fondo;
+      border: $borde_ligero_gris;
       border-right: none;
-      color: #d0c7be;
+      color: $color_blanco_sucio;
     }
 
     i {
       &.fa-magnifying-glass {
-        font-size: 13px;
-        background-color: #040404;
-        padding: 10px;
-        color: #d0c7be;
-        border: 1px solid #5f534f;
+        font-size: 23px;
+        background-color: $color_negro_fondo;
+        padding: 10px 20px 10px 20px;
+        background-color: $color_gris;
+        color: $color_blanco_sucio;
+        border: $borde_ligero_gris;
         border-left: none;
-        border-top-right-radius: 50%;
-        border-bottom-right-radius: 50%;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
 
-        :hover {
+        &:hover {
           cursor: pointer;
         }
       }

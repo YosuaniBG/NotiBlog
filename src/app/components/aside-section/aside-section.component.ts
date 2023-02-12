@@ -9,7 +9,7 @@ import { News } from 'src/app/interfaces/news.interface';
 export class AsideSectionComponent {
 
   date: Date = new Date();
-  counter: number = 6;
+  counter: number = 6;  //Se inicializa con un valor mayor a la longitud de la lista que tendra los datos iniciales
 
   @Input() List: News[] = [];
   @Input() modeUpdate: boolean = false;

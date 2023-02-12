@@ -39,7 +39,7 @@ export class NewsSectionComponent {
   }
 
   removeNews($event: any): void {
-    if (this.newsList.length > 1) this.newsList.splice($event.target.id, 1);
+    (this.newsList.length > 1) ? this.newsList.splice($event.target.id, 1) : alert("Error: No puedes eliminar la última noticia que queda");
   }
 
   selectNews($event: any): void {
